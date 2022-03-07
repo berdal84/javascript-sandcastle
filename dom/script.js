@@ -40,3 +40,29 @@
     console.log(`Title is "${title.textContent}"` );
     console.log(`Text is "${text.textContent}"` );
 }
+
+/**
+ * Get elements by class
+ */
+ {
+    console.log("Exercise #4 - Get elements by tag");
+
+    var title = document.body.getElementsByClassName("title")[0];
+    var text  = document.body.getElementsByClassName("paragraph")[0];
+
+    console.log(`Title is "${title.textContent}"` );
+    console.log(`Text is "${text.textContent}"` );
+}
+
+/**
+ * Change paragraph
+ */
+ {
+    console.log("Exercise #4 - Get elements by tag");
+
+    var title = document.body.getElementsByClassName("title")[0];
+    var text  = document.body.getElementsByClassName("paragraph")[0];
+
+    console.log(`Title is "${title.textContent}"` );
+    console.log(`Text is "${text.textContent}"` );
+}
