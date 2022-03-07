@@ -113,4 +113,80 @@ dog.sayHello();
 const dog_special = new SpecialDog("Dogue", 10, "Sleeper");
 dog_special.sayHello();
 
+
+
+/**
+ * Inheritance using legacy syntax
+ */
+Shape = function(_name)
+{
+    this.name = _name;
+}
+
+Volume = function()
+{
+    /* in cm3 */
+    this.volume = 0;
+
+    this.volume_to_liter = function()
+    {
+        return this.volume / 1000;
+    }
+}
+
+Surface = function()
+{
+    /* in cm3 */
+    this.surface = parseFloat(0);
+}
+
+/**
+ * We compose Cube with Volume and Shape.
+ */
+
+console.log("Inheritance using legacy syntax");
+Cube = function(_name, _size)
+{
+    /* extends */
+    Object.assign( this, new Shape(_name) );
+    Object.assign( this, new Volume() )
+    Object.assign( this, new Surface() )
+
+    /** define a property with getter/setter */
+    Object.defineProperty( this, 'size',{
+        get: function() {
+            return this._size;
+        },
+        set: function(_size)
+        {
+            this._size = parseFloat(_size);
+            this.volume  = Math.pow(this._size, 3);
+            this.surface = Math.pow(this._size, 2) * 6;
+        }
+    });
+   
+    /* in cm */
+    this._size = 0;
+    this.size = _size;   
+}
+
+console.log("Creating a cube ...");
+const cube = new Cube("Litre", 10);
+
+console.log("Check ...");
+console.log( cube.name === "Litre");
+console.log( cube.size === 10);
+console.log( cube.volume === 1000);
+console.log( cube.surface === 10*10*6);
+console.log( cube.volume_to_liter() === 1);
+
+console.log("Change size ...");
+cube.size = 2;
+
+console.log("Check again...");
+console.log( cube.size === 2);
+console.log( cube.volume === 8);
+console.log( cube.surface === 2*2*6);
+console.log( cube.volume_to_liter() === 8/1000);
+
 console.log("Script finished.");
