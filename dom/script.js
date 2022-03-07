@@ -6,11 +6,11 @@
 {
     console.log("Exercise #1 - Get elements by id");
 
-    var title = document.getElementById("title");
-    var text  = document.getElementById("text");
+    const title = document.getElementById("title");
+    const text  = document.getElementById("text");
 
-    console.log(`Title is "${title.textContent}"` );
-    console.log(`Text is "${text.textContent}"` );
+    console.log(title !== null);
+    console.log(text !== null);
 }
 
 /**
@@ -19,11 +19,11 @@
  {
     console.log("Exercise #2 - Get elements by selector");
 
-    var title = document.querySelector("#title");
-    var text  = document.querySelector("#text");
+    const title = document.querySelector("#title");
+    const text  = document.querySelector("#text");
 
-    console.log(`Title is "${title.textContent}"` );
-    console.log(`Text is "${text.textContent}"` );
+    console.log(title !== null);
+    console.log(text !== null);
 }
 
 /**
@@ -32,13 +32,13 @@
  {
     console.log("Exercise #3 - Get elements by tag");
 
-    var html  = document.getRootNode();
-    var body  = html.getElementsByTagName("body")[0];
-    var title = body.getElementsByTagName("h1")[0];
-    var text  = body.getElementsByTagName("p")[0];
+    const html  = document.getRootNode();
+    const body  = html.getElementsByTagName("body")[0];
+    const title = body.getElementsByTagName("h1")[0];
+    const text  = body.getElementsByTagName("p")[0];
 
-    console.log(`Title is "${title.textContent}"` );
-    console.log(`Text is "${text.textContent}"` );
+    console.log(title !== null);
+    console.log(text !== null);
 }
 
 /**
@@ -47,22 +47,35 @@
  {
     console.log("Exercise #4 - Get elements by tag");
 
-    var title = document.body.getElementsByClassName("title")[0];
-    var text  = document.body.getElementsByClassName("paragraph")[0];
+    const title = document.body.getElementsByClassName("title")[0];
+    const text  = document.body.getElementsByClassName("paragraph")[0];
 
-    console.log(`Title is "${title.textContent}"` );
-    console.log(`Text is "${text.textContent}"` );
+    console.log(title !== null);
+    console.log(text !== null);
 }
 
 /**
- * Change paragraph
+ * Change paragraph by text content
  */
  {
-    console.log("Exercise #4 - Get elements by tag");
+    console.log("Exercise #4 - Change paragraph by text content");
 
-    var title = document.body.getElementsByClassName("title")[0];
-    var text  = document.body.getElementsByClassName("paragraph")[0];
+    const title = document.getElementById("title");
+    const oldContent = title.textContent;
+    console.log(title.textContent === oldContent);
+    title.textContent += " (title changed)";
+    console.log(title.textContent !== oldContent);
+}
 
-    console.log(`Title is "${title.textContent}"` );
-    console.log(`Text is "${text.textContent}"` );
+/**
+ * Change paragraph by text innerHTML
+ */
+ {
+    console.log("Exercise #5 - Change paragraph by text innerHTML");
+
+    const title = document.getElementById("title");
+    const oldContent = title.textContent;
+    console.log(title.textContent === oldContent);
+    title.innerHTML += " <i>(title changed)</i>";
+    console.log(title.textContent !== oldContent);
 }
