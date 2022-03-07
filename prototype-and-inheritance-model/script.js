@@ -62,4 +62,55 @@ console.log(gilles.age === 37);
 gilles.getOlder(2);
 console.log(gilles.age === 39);
 
+
+
+/**
+ * Define a Dog class, using ECMAScript 2015 syntax.
+ * 
+ * from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
+ * JavaScript classes, introduced in ECMAScript 2015, are primarily
+ * syntactical sugar over JavaScript's existing prototype-based inheritance.
+ * The class syntax does not introduce a new object-oriented inheritance
+ * model to JavaScript.
+ */
+class Dog
+{
+    constructor(_name, _age)
+    {        
+        this.name = _name;
+        this.age  = _age;
+    }
+
+    sayHello()
+    {
+        console.log(`- ${this.name}: Hello, I am a Dog, my name is ${this.name} and I am ${this.age}yo.`);
+    }
+}
+
+/**
+ * Extends the class Dog using ES2015 syntax.
+ */
+class SpecialDog extends Dog
+{
+    constructor(_name, _age, _speciality)
+    {
+        super(_name, _age);
+        this.speciality = _speciality;               
+    }
+
+    sayHello()
+    {
+        // this is syntaxic sugar to call the prototype of Dog.
+        super.sayHello();
+
+        console.log(`- ${this.name}: Oh, and I was about to forget, I have the speciality "${this.speciality}".`);
+    }
+}
+ 
+const dog = new Dog("Fluffy", 10);
+dog.sayHello();
+
+const dog_special = new SpecialDog("Dogue", 10, "Sleeper");
+dog_special.sayHello();
+
 console.log("Script finished.");
