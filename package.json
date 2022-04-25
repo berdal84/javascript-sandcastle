@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "proto-and-inheritance": "node ./scripts/proto-and-inheritance.js",
-    "factories": "node ./scripts/factories.js"
+    "inheritance": "node ./scripts/proto-and-inheritance.js",
+    "factories": "node ./scripts/factories.js",
+    "promises": "node ./scripts/promises.js"
   },
   "repository": {
     "type": "git",
