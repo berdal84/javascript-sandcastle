@@ -16,7 +16,7 @@ function Person(_name, _age)
  * Modify its age
  */
 const jon = new Person("Jon", 38);
-old_age = jon.age;
+let old_age = jon.age;
 jon.age++;
 console.log(jon.age !== old_age);
 
@@ -118,12 +118,12 @@ dog_special.sayHello();
 /**
  * Inheritance using legacy syntax
  */
-Shape = function(_name)
+let Shape = function(_name)
 {
     this.name = _name;
 }
 
-Volume = function()
+let Volume = function()
 {
     /* in cm3 */
     this.volume = 0;
@@ -134,7 +134,7 @@ Volume = function()
     }
 }
 
-Surface = function()
+let Surface = function()
 {
     /* in cm3 */
     this.surface = parseFloat(0);
@@ -145,7 +145,7 @@ Surface = function()
  */
 
 console.log("Inheritance using legacy syntax");
-Cube = function(_name, _size)
+let Cube = function(_name, _size)
 {
     /* extends */
     Object.assign( this, new Shape(_name) );

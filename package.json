@@ -1,0 +1,24 @@
+{
+  "name": "javascript-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "proto-and-inheritance": "node ./scripts/proto-and-inheritance.js",
+    "factories": "node ./scripts/factories.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berdal84/javascript-sandcastle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berdal84/javascript-sandcastle/issues"
+  },
+  "dependencies": {},
+  "type": "module",
+  "devDependencies": {
+    "node": "^17.7.2"
+  }
+}
