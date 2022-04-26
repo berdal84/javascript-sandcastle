@@ -6,7 +6,8 @@
   "scripts": {
     "inheritance": "node ./scripts/proto-and-inheritance.js",
     "factories": "node ./scripts/factories.js",
-    "promises": "node ./scripts/promises.js"
+    "promises": "node ./scripts/promises.js",
+    "event-emitter": "node .scripts/event-emitter.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
     "url": "https://github.com/berdal84/javascript-sandcastle/issues"
   },
   "dependencies": {},
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
     "node": "^17.7.2"
   }
