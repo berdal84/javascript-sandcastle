@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "inheritance": "node ./scripts/proto-and-inheritance.js",
-    "factories": "node ./scripts/factories.js",
-    "promises": "node ./scripts/promises.js",
-    "event-emitter": "node .scripts/event-emitter.js"
+    "inheritance": "node scripts/proto-and-inheritance.js",
+    "factories": "node scripts/factories.js",
+    "promises": "node scripts/promises.js",
+    "event-emitter": "node scripts/event-emitter.js",
+    "testing-example": "node scripts/testing-example.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
     "url": "https://github.com/berdal84/javascript-sandcastle/issues"
   },
   "dependencies": {},
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "node": "^17.7.2"
   }
