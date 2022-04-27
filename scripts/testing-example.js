@@ -1,12 +1,28 @@
 
-import { it, expect } from './testing.js'
+import { it, expect, describe } from './testing.js'
 
-it( "suite", "failing_test", () => {
-    expect( 10 == 10);
-    expect( 1 == -1, "negative is also positive");
-})
+function add(a, b) {
+    return a + b;
+}
 
-it( "suite", "test", () => {
-    expect( 10 == 10);
-    expect( 1 == 1, "1 == 1");
-})
+describe( "failure for sure", () => {
+
+    it( "should fail", () => {
+        expect( 10 == 10);
+        expect( 1 == -1, "negative is also positive");
+    })
+});
+
+describe( "add() function", () => {
+
+    it( "should add", () => {
+        expect( add(10,10) == 20);
+        expect( add(10,50) == 60);
+    })
+
+    it( "should add negative", () => {
+        expect( add(-10,10) == 0);
+        expect( add(-10,-5) == -15);
+    })
+
+});
