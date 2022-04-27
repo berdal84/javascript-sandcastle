@@ -32,8 +32,15 @@ let Testing = function (){
 
         const resultStr = failed === 0 ? `${total}/${total} OK` : `${failed}/${total} failed!`;
 
-        console.log(`# Suite "${this.suite.name}": results >>>-------------------------- ${resultStr}`);        
-        this.suite.failures.forEach( each => { console.log(`     o "${each.name}" failed !`) })
+        const message = `# Suite "${this.suite.name}": results >>>-------------------------- ${resultStr}`; 
+         
+        if( failed === 0 ){
+            console.log(message);
+        } else {
+            console.error(message);
+            this.suite.failures.forEach( each => { console.error(`     o "${each.name}" failed !`) })
+        }
+        
         console.log("\n")
     }
 
