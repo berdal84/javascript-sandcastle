@@ -1,4 +1,5 @@
-const { assert } = require("console");
+import { assert } from "console";
+import { it, describe, expect } from "./testing.js" // this lib is the result of an exercise too!
 
 let EventEmitter = function() {
     console.log(`new EventEmitter`);
@@ -36,38 +37,70 @@ let EventListener = function( _callback ) {
 }
 
 
+describe( "EventEmitter", () => {
 
-console.log("=============================");
-console.log("Program:");
 
-let receivedEvents1 = [];
-let receivedEvents2 = [];
+    it( "addListener", () => {
 
-let emitter = new EventEmitter()
-emitter.emit("1 - Hello world!")     // should not be received by listener
-let listener1 = emitter.addListener( ( event ) => {
-    receivedEvents1.push(event);
-    console.log(`Event received!`);
-})
-let listener2 = emitter.addListener( ( event ) => {
-    receivedEvents2.push(event);
-    console.log(`Event received!`);
-})
-emitter.emit("2 - Hello world!")     // should be received by listener
-emitter.removeListener( listener1 );
-emitter.emit("3 - Hello world!")     // should not be received by listener
+        let receivedEvents = []; 
+        const emitter = new EventEmitter()        
+        const listener = emitter.addListener( ( event ) => {
+            receivedEvents.push(event);
+            console.log(`Event received!`);
+        })
+        emitter.emit("event")
 
-console.log("=============================");
-console.log("Tests:");
+        expect( emitter.listeners.length).toBe(1, "1 listener must be present");
+        expect( receivedEvents.length).toBe(1, "listener should catch the event");
+        expect( receivedEvents[0] ).toBe("event", "data should be reveived by listener");
+    });
 
-assert( receivedEvents1.length === 1);
-assert( receivedEvents1[0] === "2 - Hello world!");
+    it( "removeListener", () => {
 
-assert( receivedEvents2.length === 2);
-assert( receivedEvents2[0] === "2 - Hello world!");
-assert( receivedEvents2[1] === "3 - Hello world!");
+        let receivedEvents = []; 
+        const emitter = new EventEmitter()        
+        const listener = emitter.addListener( ( event ) => {
+            receivedEvents.push(event);
+            console.log(`Event received!`);
+        })
+        expect( emitter.listeners.length).toBe(1, "1 listener must be present");
+        emitter.removeListener(listener);
+        expect( emitter.listeners.length).toBe(1, "no listener must be present");
+        emitter.emit("event")
+        expect( receivedEvents.length).toBe(0, "listener should receive no event after have been removed from emitter");
+    });
 
-console.log("=============================");
+    it( "Multiple listeners", () => {
+
+        let receivedEvents1 = [];
+        let receivedEvents2 = [];
+    
+        let emitter = new EventEmitter()
+        emitter.emit("1 - Hello world!")     // should not be received by listener
+        let listener1 = emitter.addListener( ( event ) => {
+            receivedEvents1.push(event);
+            console.log(`Event received!`);
+        })
+        let listener2 = emitter.addListener( ( event ) => {
+            receivedEvents2.push(event);
+            console.log(`Event received!`);
+        })
+        emitter.emit("2 - Hello world!")     // should be received by listener
+        emitter.removeListener( listener1 );
+        emitter.emit("3 - Hello world!")     // should not be received by listener
+
+        expect( receivedEvents1.length).toBe(1, "should only catch the second event");
+        expect( receivedEvents1[0] ).toBe("2 - Hello world!");
+
+        expect( receivedEvents2.length).toBe(2);
+        expect( receivedEvents2[0]).toBe("2 - Hello world!");
+        expect( receivedEvents2[1]).toBe("3 - Hello world!");
+    });
+
+});
+
+
+
 
 
 
