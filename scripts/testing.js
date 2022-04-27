@@ -33,7 +33,7 @@ let Testing = function (){
         const resultStr = failed === 0 ? `${total}/${total} OK` : `${failed}/${total} failed!`;
 
         const message = `# Suite "${this.suite.name}": results >>>-------------------------- ${resultStr}`; 
-         
+
         if( failed === 0 ){
             console.log(message);
         } else {
@@ -87,19 +87,7 @@ const Expectation = function ( test, result ) {
     this.test   = test;
     this.result = result;
 
-    this.toBeTruthy = ( reason ) => {
-        if( !this.result ) {
-            this.pushFailure(true, reason)
-        }
-    }
-
-    this.toBe = ( expected, reason ) => {
-        if( this.result !== expected ) {
-            this.pushFailure(expected, reason)
-        }
-    }
-
-    this.pushFailure = ( expected, reason ) => {
+    let _pushFailure = ( expected, reason ) => {
         let failure = {
             result:   this.result,
             expected,
@@ -107,6 +95,25 @@ const Expectation = function ( test, result ) {
         }
         this.test.failures.push( failure );
     }
+
+    this.toBeTruthy = ( reason ) => {
+        if( !this.result ) {
+            _pushFailure(true, reason)
+        }
+    }
+
+    this.toBe = ( expected, reason ) => {
+        if( this.result !== expected ) {
+            _pushFailure(expected, reason)
+        }
+    }
+
+    this.notToBe = ( expected, reason ) => {
+        if( this.result === expected ) {
+            _pushFailure(expected, reason)
+        }
+    }
+    
 }
 
 
