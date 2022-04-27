@@ -69,12 +69,39 @@ let Testing = function (){
         else
         {
             this.suite.failures.push(this.test)
-            this.test.failures.forEach( ({ result, reason }) => {
-                console.error(`     Expecting: ${result} to be true. ${reason}`)
+            this.test.failures.forEach( ({ result, expected, reason }) => {
+                console.error(`     Expecting: ${result} to be ${expected}. ${reason}`)
             })
         }
     }
 }
+
+const Expectation = function ( test, result ) {
+    this.test   = test;
+    this.result = result;
+
+    this.toBeTruthy = ( reason ) => {
+        if( !this.result ) {
+            this.pushFailure(true, reason)
+        }
+    }
+
+    this.toBe = ( expected, reason ) => {
+        if( this.result !== expected ) {
+            this.pushFailure(expected, reason)
+        }
+    }
+
+    this.pushFailure = ( expected, reason ) => {
+        let failure = {
+            result:   this.result,
+            expected,
+            reason
+        }
+        this.test.failures.push( failure );
+    }
+}
+
 
 let testing;
 
@@ -84,14 +111,8 @@ let testing;
  * @param {any} expectation an expression evaluated as boolean 
  * @param {string} reason the reason why expectation must be true
  */
-let expect = ( expectation, reason ) => {
-    if( Boolean(expectation) ) {
-        let failure = {
-            result: expectation,
-            reason: reason ? reason : "no reason"
-        }
-        testing.test.failures.push( failure );
-    }
+let expect = ( expectation ) => {
+    return new Expectation(testing.test, expectation);
 }
 
 /**
