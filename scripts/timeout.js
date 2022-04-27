@@ -20,8 +20,8 @@ const f = () => {
 // 2 - override setTimeout to be able to clearTimeOutAll()
 
 setTimeout( () => {
-    var _setTimeout   = setTimeout; // backup original
-    var _clearTimeout = clearTimeout; // backup original
+    const _setTimeout   = setTimeout;   // backup original
+    const _clearTimeout = clearTimeout; // backup original
 
     const ids = new Set();
 
