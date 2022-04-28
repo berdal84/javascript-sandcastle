@@ -2,19 +2,22 @@ import { describe, it, expect } from './testing.js'
 
 function bubbleSort( array ) {
 
+    const sort = (arr) => {
+        if( array.length <= 1) {
+            return array;
+        } else if( array.length == 2 ) {
+            if( array[0] > array[1]) {
+                return [ array[1], array[0] ]
+            }
+            return array;
+        } else {
+            // TODO
+            return array;
+        }
+    }
     console.assert( array instanceof Array);
 
-    if( array.length <= 1) {
-        return array;
-    } else if( array.length == 2 ) {
-        if( array[0] > array[1]) {
-            return [ array[1], array[0] ]
-        }
-        return array;
-    } else {
-        // TODO
-        return array;
-    }
+    return sort(array);
 }
 
 
