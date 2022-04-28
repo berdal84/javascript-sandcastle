@@ -10,7 +10,8 @@
     "event-emitter": "node scripts/event-emitter.js",
     "testing-example": "node scripts/testing-example.js",
     "timeout": "node scripts/timeout.js",
-    "canvas": "npx http-server scripts/canvas/ -c0"
+    "canvas": "npx http-server scripts/canvas/ -c0",
+    "dom": "npx http-server scripts/dom/ -c0"
   },
   "repository": {
     "type": "git",

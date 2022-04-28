@@ -79,3 +79,35 @@
     title.innerHTML += " <i>(title changed)</i>";
     console.log(title.textContent !== oldContent);
 }
+
+/**
+ * listen events on buttons
+ */
+{
+    const btn = document.getElementById("press-me");
+
+    if( !btn ) {
+        alert("Unable to get button!");
+    }
+
+    let clickCount = 0;
+    const listener = (el, evt) => {
+        clickCount++;
+        alert(`Clicked! ${clickCount} time(s)`, clickCount);
+    }
+
+    btn.addEventListener( "click", listener );    
+}
+
+{
+    const btn = document.getElementById("hover-me");
+    if( !btn ) {
+        alert("Unable to get button!");
+    }
+
+    const listener = ( el, evt) => {
+        alert(`Hovered!`);
+    }
+
+    btn.addEventListener( "pointerenter", listener);
+}
