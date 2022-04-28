@@ -1,0 +1,55 @@
+
+* {
+    color: white;
+}
+
+#main {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+#toolbar {
+    background-color: red;
+    flex-grow: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#toolbar a {
+    background-color: rgb(120, 0, 0);
+    padding: 5px;
+    border-radius: 2px;
+    margin: 4px;
+}
+
+#center {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+#content {
+    background-color: rgb(134, 134, 134);
+    padding: 10px;
+    flex-grow: 1;
+}
+
+#sidebar {
+    background-color: rgb(255, 119, 0);
+    padding: 10px;
+    flex-basis: 200px;
+    flex-grow: 0;
+}
+
+#sidebar > div {
+    border-top: solid 10px white;
+    margin-bottom: 20px;
+}
