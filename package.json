@@ -10,6 +10,7 @@
     "event-emitter": "node scripts/event-emitter.js",
     "testing-example": "node scripts/testing-example.js",
     "timeout": "node scripts/timeout.js",
+    "bubble-sort": "node scripts/bubble-sort.js",
     "canvas": "npx http-server scripts/canvas/ -c0",
     "flex": "npx http-server scripts/flex/ -c0",
     "dom": "npx http-server scripts/dom/ -c0"

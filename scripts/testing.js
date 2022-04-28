@@ -103,7 +103,23 @@ const Expectation = function ( test, result ) {
     }
 
     this.toBe = ( expected, reason ) => {
-        if( this.result !== expected ) {
+
+        if( expected instanceof Array ) {
+            let mismatch = false;
+            if( expected.length === this.result.length ) {
+                expected.forEach( (value, idx ) => {
+                    if( value !== this.result[idx]) {
+                        mismatch = true;
+                    }
+                })
+            } else {
+                mismatch = true;
+            }
+
+            if ( mismatch ) {
+                _pushFailure(expected, reason)
+            }
+        } else if( this.result !== expected ) {
             _pushFailure(expected, reason)
         }
     }
