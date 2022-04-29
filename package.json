@@ -14,7 +14,8 @@
     "canvas-2d": "npx http-server scripts/canvas/2d/ -c0",
     "flex": "npx http-server scripts/flex/ -c0",
     "dom": "npx http-server scripts/dom/ -c0",
-    "canvas-3d": "npx http-server scripts/canvas/3d/ -c0"
+    "canvas-3d": "npx http-server scripts/canvas/3d/ -c0",
+    "web-components": "npx http-server scripts/web-components/ -c0"
   },
   "repository": {
     "type": "git",
