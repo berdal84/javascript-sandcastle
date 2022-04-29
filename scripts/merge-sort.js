@@ -51,7 +51,7 @@ function merge(_arr0, _arr1) {
  * @param {Array<number>} _array the array to sort (array won't be modified), can be empty but must be defined. 
  * @returns {Array<number>} a sorted array
  */
-function bubbleSort( _array ) {
+function mergeSort( _array ) {
 
     console.assert( _array !== undefined);
     console.assert( _array instanceof Array);
@@ -71,27 +71,27 @@ function bubbleSort( _array ) {
         const left      = arrcpy.splice(0, middleIdx );
         const right     = arrcpy;
         // sort separately an merge
-        return merge( bubbleSort(left), bubbleSort(right));
+        return merge( mergeSort(left), mergeSort(right));
     }
 }
 
 
-describe( "bubble sort",  ()  => {
+describe( "Merge sort (divide and conquer)",  ()  => {
 
     it( "Should sort empty array", ()=> {
-        expect( bubbleSort([]) ).toBe([], "An empty table is returned as-is")
+        expect( mergeSort([]) ).toBe([], "An empty table is returned as-is")
     })
 
     it( "Should sort one item", ()=> {
-        expect( bubbleSort([15])).toBe([15], "A single item array must be returned as-is")
+        expect( mergeSort([15])).toBe([15], "A single item array must be returned as-is")
     })
 
     it( "Should sort two items", ()=> {
-        expect( bubbleSort([19,0])).toBe( [0,19], "Should sort two items")
+        expect( mergeSort([19,0])).toBe( [0,19], "Should sort two items")
     })
 
     it( "Should sort many items", ()=> {
-        expect( bubbleSort([9,0,10,15,-2,3,4])).toBe( [-2,0,3,4,9,10,15], "7 length array should be sorted")
+        expect( mergeSort([9,0,10,15,-2,3,4])).toBe( [-2,0,3,4,9,10,15], "7 length array should be sorted")
     })
 });
 
