@@ -25,7 +25,9 @@
   "bugs": {
     "url": "https://github.com/berdal84/javascript-sandcastle/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gl-matrix": "^3.4.3"
+  },
   "type": "module",
   "devDependencies": {
     "http-server": "^14.1.0",
